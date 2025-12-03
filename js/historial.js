@@ -1,4 +1,4 @@
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
         //   VALIDACIÓN SOLO ADMIN
         const admin = localStorage.getItem("adminActivo");
