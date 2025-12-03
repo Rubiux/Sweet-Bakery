@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Pasteles</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/catalogo.css">
+
+    <!--preguntamos antes de empezar, ¿HAY ALGUIEN AHI CON VIDA?-->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // esto checa si si hay, se guardo al momento de iniciar seccion que esta ahi arriba o no, o nada 
+    // no quitar MUY IMPORTANTE 
+    const usuarioLogueado = localStorage.getItem("usuarioActivo");
+
+    // busca ...  y si encontro, lo muestra todo eso si no.. pues no hace nada y sigue escondido  :,(
+    // OJO: aquí era "usuario" pero la variable correcta es "usuarioLogueado"
+    if (usuarioLogueado) {
+        document.getElementById("btnPedidos").style.display = "block";    
+        document.getElementById("btnCerrarSesion").style.display = "block"; 
+        document.getElementById("btnIniciarSesion").style.display = "none"; 
+    } else {
+        //no muestra
+        document.getElementById("btnPedidos").style.display = "none";
+        document.getElementById("btnCerrarSesion").style.display = "none";
+        document.getElementById("btnIniciarSesion").style.display = "block";
+    }
+
+    // cerrar sesión
+    document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+
+        // Eliminar usuario o bueno sacaralo
+        localStorage.removeItem("usuarioActivo");
+
+        alert("Sesión cerrada correctamente.");
+
+        // Recargar para regresar a que se oculten nuestros botoncitos de azucar 
+        location.reload();
+    });
+
+}); // ← cierra el DOMContentLoaded
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #500f4a;" sticky-top>
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+            <li class="nav-item">
+            <a class="nav-link"  id="btnIniciarSesion" href="registros.html">Iniciar sesion</a>
+            </li>
+
+            <li class="nav-item"><!--cambio -->
+            <a class="nav-link" href="index.html" id="btnCerrarSesion" style="display:none;">Cerrar sesión</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link active" href="catalogo.html">Catalogo</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link" href="pedidos.html" id="btnPedidos" style="display:none;"> Realizar pedidos </a>
+            </li>
+
+              <li class="nav-item">
+            <a class="nav-link" href="index.html">inicio</a>
+            </li>
+           
+        </li>
+        </ul>
+        </div>
+        
+        <a class="navbar-brand" href="index.html">Sweet Bakery </a>
+          <button type="button" class="btn" data-bs-toggle="button"><i class="bi bi-cart-dash text-success  fs-1"></i>
+</button>
+    </div>
+    </nav>
+
+
+        <h1 class="encabezado">Pasteles realizados por nosotros</h1>
+
+
+    <section class="galeria">
+        <div class="producto">
+            <img src="image/reb.jpg" alt="pastel 1">
+            <h3>rebanadas</h3>
+            <p>$35 MXN</p>
+        </div>
+
+        <div class="producto">
+            <img src="image/pas.jpg" alt="Pastel 2">
+            <h3>Pastel Fresa</h3>
+            <p>$380 MXN</p>
+        </div>
+
+        <div class="producto">
+            <img src="image/pas1.png" alt="Pastel 3">
+            <h3>Pastel Tres Leches</h3>
+            <p>$300 MXN</p>
+        </div>
+
+        <div class="producto">
+            <img src="image/pas2.png" alt="Pastel 4">
+            <h3>Pastel Vainilla</h3>
+            <p>$320 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/pass3.png" alt="Pastel 4">
+            <h3>Pastel  chocolate con vainilla</h3>
+            <p>$380 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/pas4.png" alt="Pastel 4">
+            <h3>Pastel sencillo</h3>
+            <p>$200 MXN</p>
+        </div>
+
+        <div class="producto">
+            <img src="image/unicornio.jpg" alt="Pastel 4">
+            <h3>Pastel de nuez</h3>
+            <p>$300 MXN</p>
+        </div>
+    </section>
+
+     <h1 class="encabezado">postres que podemos realizar</h1>
+
+    <section class="galeria">
+        <div class="producto">
+            <img src="image/mesa.jpg" alt="pastel 1">
+            <h3>mesa de postres</h3>
+            <p>$350 MXN</p>
+        </div>
+
+        <div class="producto">
+            <img src="image/dona.jpg" alt="Pastel 4">
+            <h3>donas</h3>
+            <p>$20 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/frap.jpg" alt="Pastel 4">
+            <h3>frapes</h3>
+            <p>$55 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/fn.jpg" alt="Pastel 4">
+            <h3>dulce frances</h3>
+            <p>$19 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/fn2.jpg" alt="Pastel 4">
+            <h3>decena de donas personalizadas</h3>
+            <p>$220 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/karlo.jpg" alt="Pastel 4">
+            <h3>carlotas</h3>
+            <p>$40 MXN</p>
+        </div>
+
+         <div class="producto">
+            <img src="image/gall.jpg" alt="Pastel 4">
+            <h3>galletas caceras c/u</h3>
+            <p>$14 MXN</p>
+        </div>
+    </section>
+
+    <section class="galeria">
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+            <link rel="stylesheet" href="css/inicio.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+<!--preguntamos antes de empezar, ¿HAY ALGUIEN AHI CON VIDA?-->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // esto checa si si hay, se guardo al momento de iniciar seccion que esta ahi arriba o no, o nada 
+    // no quitar MUY IMPORTANTE 
+    const usuarioLogueado = localStorage.getItem("usuarioActivo");
+
+    // busca ...  y si encontro, lo muestra todo eso si no.. pues no hace nada y sigue escondido  :,(
+    // OJO: aquí era "usuario" pero la variable correcta es "usuarioLogueado"
+    if (usuarioLogueado) {
+        document.getElementById("btnPedidos").style.display = "block";    
+        document.getElementById("btnCerrarSesion").style.display = "block"; 
+        document.getElementById("btnIniciarSesion").style.display = "none"; 
+    } else {
+        //no muestra
+        document.getElementById("btnPedidos").style.display = "none";
+        document.getElementById("btnCerrarSesion").style.display = "none";
+        document.getElementById("btnIniciarSesion").style.display = "block";
+    }
+
+    // cerrar sesión
+    document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+
+        // Eliminar usuario o bueno sacaralo
+        localStorage.removeItem("usuarioActivo");
+
+        alert("Sesión cerrada correctamente.");
+
+        // Recargar para regresar a que se oculten nuestros botoncitos de azucar 
+        location.reload();
+    });
+
+}); // ← cierra el DOMContentLoaded
+</script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #320000;" sticky-top>
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+            <li class="nav-item"><!--cambio -->
+            <a class="nav-link"  id="btnIniciarSesion" href="registros.html">Iniciar sesion</a>
+            </li>
+
+            <li class="nav-item"><!--cambio -->
+            <a class="nav-link" href="#" id="btnCerrarSesion" style="display:none;">Cerrar sesión</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link" href="catalogo.html">Catalogo</a>
+            </li>
+
+            <li class="nav-item"><!--cambio -->
+           
+               <a class="nav-link" href="pedidos.html" id="btnPedidos" style="display:none;"> Realizar pedidos </a>
+            </li>
+            
+              <li class="nav-item">
+            <a class="nav-link active" href="index.html">Inicio</a>
+            </li>
+            
+        </li>
+        </ul>
+        </div>
+        
+        <a class="navbar-brand" href="index.html">Sweet Bakery </a>
+          <button type="button" class="btn" data-bs-toggle="button"><i class="bi bi-cart-dash text-success  fs-1"></i>
+</button>
+    </div>
+    </nav>
+  <header class="contenedor-postre">
+    <div class="texto-postre">
+        <h1>Sweet Bakery</h1>
+        <p> Nuestra pasión por la repostería nos impulsa todos los días a hornear con cariño, crear pasteles únicos, preparar deliciosas donas y galletas, 
+            y diseñar mesas de dulces que sorprenden en cada celebración. Nos encanta innovar, 
+            mantener siempre la mejor calidad y endulzar cada momento especial de nuestros clientes.</p>
+    </div>
+    <div class="imagen-postre">
+        <img src="image/fn.jpg" >
+    </div>
+</header>
+
+
+  <section class="Especialidades mb-5">
+            <div class="container">
+                <h4 class="text-center mt-3">¿Que vendemos?</h4>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="text-center rounded h-100 p-1">
+                            <i class="bi bi-cookie "></i>
+                            <h6>Galletas</h6>
+                        </div>
+                    </div>
+
+                      <div class="col-md-2">
+                        <div class="text-center  rounded h-100 p-1">
+                           <i class="bi bi-cake "></i>
+                            <h6>Pastel</h6>
+                        </div>
+                    </div>
+
+
+                      <div class="col-md-2">
+                        <div class="text-center  rounded h-100 p-1">
+                            <i class="bi bi-cake2 "></i>
+                            <h6>Rebanada</h6>
+                        </div>
+                    </div>        
+                    
+                     <div class="col-md-2">
+                        <div class="text-center  rounded h-100 p-1">
+                            <i class="bi bi-disc-fill"></i>
+                            <h6>Donas</h6>
+                        </div>
+                    </div>  
+
+                     <div class="col-md-2">
+                        <div class="text-center  rounded h-100 p-1">
+                            <i class="bi bi-archive"></i>
+                            <h6>Caja donas</h6>
+                        </div>
+                    </div> 
+                    
+                     <div class="col-md-2">
+                        <div class="text-center  rounded h-100 p-1">
+                            <i class="bi bi-archive-fill"></i>
+                            <h6>Caja de galletas</h6>
+                        </div>
+                    </div> 
+                    
+                </div>
+            </div>
+        </section>
+
+         <div class="contenedor-postre">
+    <div class="texto-postre">
+        <h1>Sweet Bakery</h1>
+        <p>Cada uno de nuestros invitados nos inspira a llegar más lejos brindándoles un servicio de gran calidad y el toque de sabor a sus mañanas, tardes, meriendas y celebraciones.</p>
+    </div>
+    <div class="imagen-postre">
+        <img src="image/fn2.jpg" >
+    </div>
+</div>
+
+        
+
+        <div class="contenedor2">
+        <div class="cuadro2">        
+            <h3>Pastel de unicornio </h3>
+            <p>Contamos con pasteles Personalizados para cualquier evento</p>   
+            <img src="image/unicornio.jpg">
+            </div>   
+        
+        <div class="cuadro3"> 
+            <h3>Mesa de dulces</h3>      
+            <p>Contamos con mesa de dulces para cualquier evento </p>
+            <img src="image/mesa.jpg">
+        </div>
+
+      </div>
+        
+</div>
+<br>
+ <div class="contenedor-postre">
+    <div class="texto-postre">
+        <h1>Sweet Bakery</h1>
+        <p>Actualmente contamos con dos sucursales en León, Gto. Puedes encontrarnos en Blvd. Universidad Tecnológica #225 y en Priv. Tecnológico S/N, Industrial Julián de Obregón, 37290 León de los Aldama, Gto.
+            Por el momento no contamos con servicio a domicilio, pero con gusto preparamos tus pedidos para que puedas pasar a recogerlos en la sucursal que te quede mejor.
+            En el caso de la mesa de dulces, esa sí se instala directamente en tu salón de fiestas. Sin embargo, para otros postres o productos, es necesario que pases a recogerlos a cualquiera de nuestras sucursales.</p>
+    </div>
+    <div class="imagen-postre">
+        <img src="image/map.jpg" >
+    </div>
+</div>
+<br>
+
+        <footer>
+        <p>hola@pasteleriaUTL.com.mx</p>
+        <p>Tel.4771234567</p>
+         <button type="button" class="btn"  data-bs-toggle="button"><i class="bi bi-facebook"></i></button> 
+         <button type="button" class="btn" data-bs-toggle="button"><i class="bi bi-whatsapp"></i></button> 
+          <button type="button" class="btn" data-bs-toggle="button"><i class="bi bi-instagram"></i></button>
+    </footer>
+</body>
+</html>

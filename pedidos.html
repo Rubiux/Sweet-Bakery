@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasteles | Pedido Personalizado</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+    <!--preguntamos antes de empezar, ¿HAY ALGUIEN AHI CON VIDA?-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // esto checa si si hay, se guardo al momento de iniciar seccion que esta ahi arriba o no, o nada 
+            // no quitar MUY IMPORTANTE 
+            const usuarioLogueado = localStorage.getItem("usuarioActivo");
+
+
+            // cerrar sesión
+            document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+
+                // Eliminar usuario o bueno sacaralo
+                localStorage.removeItem("usuarioActivo");
+
+                alert("Sesión cerrada correctamente.");
+
+                // Recargar para regresar a que se oculten nuestros botoncitos de azucar 
+                location.reload();
+            });
+
+        }); // ← cierra el DOMContentLoaded
+    </script>
+
+</head>
+
+<body>
+    <!--
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
+    <img src="img/logo.png" alt="logo" class="me-2 rounded logo">
+    <a class="navbar-brand" href="index.html">Pasteles</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+        <li class="nav-item"><a class="nav-link active" href="pedidos.html">Hacer Pedidos Personalizados</a></li>
+        <li class="nav-item"><a class="nav-link" href="registros.html">Registro e iniciar sesión</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>-->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #500f4a;" sticky-top>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item"><!--cambio -->
+                    <a class="nav-link" href="index.html" id="btnCerrarSesion" style="display:block;">Cerrar sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="catalogo.html">Catalogo</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="pedidos.html">Realizar pedidos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">inicio</a>
+                </li>
+
+                </li>
+            </ul>
+        </div>
+
+        <a class="navbar-brand" href="index.html">Sweet Bakery</a>
+        <button type="button" class="btn" data-bs-toggle="button"><i class="bi bi-cart-dash text-success  fs-1"></i>
+        </button>
+        </div>
+    </nav>
+
+
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Pedido Personalizado</h2>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <form class="border p-4 rounded" id="formPedido">
+
+                    <div class="mb-3">
+                        <label class="form-label">Nombre completo</label>
+                        <input type="text" id="nombre" class="form-control" placeholder="Tu nombre">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Teléfono</label>
+                        <input type="text" id="telefono" class="form-control" placeholder="Ej. 4491234567">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Correo electrónico</label>
+                        <input type="email" id="correo" class="form-control" placeholder="ejemplo@mail.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de pastel</label>
+                        <input type="text" id="tipoPastel" class="form-control"
+                            placeholder="Chocolate, Tres Leches, Fondant, etc.">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Descripción del diseño</label>
+                        <textarea id="descripcion" class="form-control" rows="4"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tamaño del pastel</label>
+                        <select id="tamanio" class="form-control">
+                            <option>Chico</option>
+                            <option>Mediano</option>
+                            <option>Grande</option>
+                            <option>Personalizado</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fecha de entrega</label>
+                        <input type="date" id="fechaEntrega" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Domicilio para entrega</label>
+                        <textarea id="domicilio" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <button class="btn btn-pasteles w-100" type="submit">Enviar pedido</button>
+
+                </form>
+
+            </div>
+
+            <div class="col-md-6 hide-mobile">
+                <div class="border p-4 rounded">
+                    <h4>¿Cómo funciona?</h4>
+                    <p>En este apartado puedes solicitar un pastel totalmente personalizado. Solo llena el formulario y
+                        nos pondremos en contacto contigo.</p>
+
+                    <h4>Horarios</h4>
+                    <p>Lunes a Domingo · 9 AM – 8 PM</p>
+
+                    <h4>Redes</h4>
+                    <p>Instagram, TikTok, Facebook</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto" class="text-center py-3">
+        <p>&copy; 2025 Pasteles | Pasteles Personalizados | byrubius10@gmail.com</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/pedidos.js"></script>
+
+</body>
+
+</html>

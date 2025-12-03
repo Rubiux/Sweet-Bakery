@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registros.css">
+       
+    <title>Registro de usuarios</title>
+
+    <!--preguntamos antes de empezar, ¿HAY ALGUIEN AHI CON VIDA?-->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // esto checa si si hay, se guardo al momento de iniciar seccion que esta ahi arriba o no, o nada 
+    // no quitar MUY IMPORTANTE 
+    const usuarioLogueado = localStorage.getItem("usuarioActivo");
+
+    // busca ...  y si encontro, lo muestra todo eso si no.. pues no hace nada y sigue escondido  :,(
+    // OJO: aquí era "usuario" pero la variable correcta es "usuarioLogueado"
+    if (usuarioLogueado) {
+        document.getElementById("btnPedidos").style.display = "block";    
+        document.getElementById("btnCerrarSesion").style.display = "block"; 
+        document.getElementById("btnIniciarSesion").style.display = "none"; 
+    } else {
+        //no muestra
+        document.getElementById("btnPedidos").style.display = "none";
+        document.getElementById("btnCerrarSesion").style.display = "none";
+        document.getElementById("btnIniciarSesion").style.display = "block";
+    }
+
+    // cerrar sesión
+    document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+
+        // Eliminar usuario o bueno sacaralo
+        localStorage.removeItem("usuarioActivo");
+
+        alert("Sesión cerrada correctamente.");
+
+        // Recargar para regresar a que se oculten nuestros botoncitos de azucar 
+        location.reload();
+    });
+
+}); // ← cierra el DOMContentLoaded
+</script>
+
+</head>
+<body>
+    <div class="container">
+    <h1>Registro de usuarios
+</h1>
+
+    <!-- si alguien le va ameter mano a mi lindo codigo esto son los Botones para mostrar formularios 
+     esto se pueden modificar con logos de boostrap solo respeten el onclick="mostrar('registro')" y ('login')-->
+    <button onclick="mostrar('registro')">Abrir Registro</button>
+    <button onclick="mostrar('login')">Abrir Login</button>
+    <button onclick="window.location.href='admin.html'">Admin</button>
+
+
+    <!-- es para que no se vea cutre el Formulario de Registro (oculto al inicio) -->
+    <div id="registro" class="oculto">
+      <h2>Registro</h2>
+      <input type="text" id="regUsuario" placeholder="Usuario">
+      <input type="password" id="regPassword" placeholder="Contraseña">
+      <button onclick="registrar()">Registrar</button>
+    </div>
+
+    <!-- esto es igual para el otro Formulario de Login (oculto al inicio) -->
+    <div id="login" class="oculto">
+      <h2>Inicio de Sesión</h2>
+      <input type="text" id="loginUsuario" placeholder="Usuario">
+      <input type="password" id="loginPassword" placeholder="Contraseña">
+      <button onclick="iniciarSesion()">Iniciar Sesión</button>
+    </div>
+
+    <!--esto fue para que se vea mas cremoso lo que hace es que aparezca el nombre de quien inicio/registro -->
+    <p id="mensaje"></p>
+     <script src="js/registro.js"></script>
+</body>
+</html>

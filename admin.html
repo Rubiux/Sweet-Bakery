@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registros.css">
+    <title>Panel Admin</title>
+
+<script>
+// CONTROL DE SESIÓN SOLO PARA ADMIN 
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const adminLogueado = localStorage.getItem("adminActivo");
+
+    // Si ya está logueado, oculta el login y muestra botones
+    if (adminLogueado) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("btnPedidos").style.display = "block";
+        document.getElementById("btnCerrarSesion").style.display = "block";
+    } else {
+        // Si NO está logueado, solo muestra el login
+        document.getElementById("login").style.display = "block";
+        document.getElementById("btnPedidos").style.display = "none";
+        document.getElementById("btnCerrarSesion").style.display = "none";
+    }
+
+    // Cerrar sesión admin
+    document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+        localStorage.removeItem("adminActivo");
+        alert("Sesión de administrador cerrada.");
+        location.reload();
+    });
+
+});
+
+//  FUNCIÓN PARA INICIAR SESIÓN DEL ADMIN 
+
+function iniciarSesionAdmin() {
+
+    const usuario = document.getElementById("loginUsuario").value;
+    const password = document.getElementById("loginPassword").value;
+
+    // Datos del admin (puedes cambiarlos si quieres)
+    const adminUser = "admin";
+    const adminPass = "1234";
+
+    if (usuario === adminUser && password === adminPass) {
+        localStorage.setItem("adminActivo", usuario);
+        location.reload();
+    } else {
+        alert("Usuario o contraseña incorrectos.");
+    }
+}
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Panel Administrativo</h1>
+
+        <!-- LOGIN DEL ADMIN (solo esto se muestra al inicio) -->
+        <div id="login" class="oculto">
+            <h2>Inicio de Sesión Admin</h2>
+            <input type="text" id="loginUsuario" placeholder="Usuario">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <button onclick="iniciarSesionAdmin()">Entrar</button>
+        </div>
+
+        <!-- Se muestran SOLO si el admin está logueado -->
+        <button id="btnPedidos" style="display:none;" onclick="location.href='historialPedidos.html'">
+            Ver Historial de Pedidos
+        </button>
+
+        <button id="btnCerrarSesion" style="display:none;">
+            Cerrar Sesión
+        </button>
+
+        <p id="mensaje"></p>
+    </div>
+    <script src="js/admin-login.js"></script>
+
+</body>
+</html>

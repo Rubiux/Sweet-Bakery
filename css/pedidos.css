@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background-color: #f7f7f7;
+    color: #262626;
+}
+
+.row1{
+    height: 200px;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 2px solid #ddd;
+}
+
+header{
+    color: white;
+}
+
+.logo{
+    height: 45px;
+    width: auto;
+    transition: .3s;
+}
+
+.logo:hover{
+    transform: scale(1.05);
+}
+
+.inicio{
+    height: 100vh;
+    background-image: url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    position: relative;
+}
+
+.inicio::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(55, 55, 55, 0.35);
+}
+
+.inicio-titulo{
+    color: white;
+    position: relative;
+    z-index: 2;
+    margin-top: 40%;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* --- Especialidades --- */
+.especialidades{
+    padding: 80px 0;
+    text-align: center;
+}
+
+.especialidades h2{
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.especialidades .bi{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(168, 164, 164, 0.05);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    line-height: 80px;
+    transition: .3s ease;
+}
+
+.especialidades .bi:hover{
+    background-color: rgba(0,0,0,0.15);
+    transform: scale(1.08);
+}
+
+/* --- Footer --- */
+footer{
+    background: #222;
+    color: #ccc;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a{
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width: 768px){
+
+    .row1{
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .inicio{
+        padding-left: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .inicio-titulo{
+        margin-top: 0;
+        font-size: 2.3rem;
+    }
+}
