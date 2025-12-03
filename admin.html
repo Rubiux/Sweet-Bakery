@@ -41,7 +41,7 @@ function iniciarSesionAdmin() {
     const usuario = document.getElementById("loginUsuario").value;
     const password = document.getElementById("loginPassword").value;
 
-    // Datos del admin (puedes cambiarlos si quieres)
+    // Datos del admin
     const adminUser = "admin";
     const adminPass = "1234";
 
@@ -59,7 +59,7 @@ function iniciarSesionAdmin() {
     <div class="container">
         <h1>Panel Administrativo</h1>
 
-        <!-- LOGIN DEL ADMIN (solo esto se muestra al inicio) -->
+        <!-- LOGIN DEL ADMIN -->
         <div id="login" class="oculto">
             <h2>Inicio de Sesión Admin</h2>
             <input type="text" id="loginUsuario" placeholder="Usuario">
@@ -67,7 +67,7 @@ function iniciarSesionAdmin() {
             <button onclick="iniciarSesionAdmin()">Entrar</button>
         </div>
 
-        <!-- Se muestran SOLO si el admin está logueado -->
+        <!-- informacion que solo ve el admin -->
         <button id="btnPedidos" style="display:none;" onclick="location.href='historialPedidos.html'">
             Ver Historial de Pedidos
         </button>
@@ -82,3 +82,4 @@ function iniciarSesionAdmin() {
 
 </body>
 </html>
+
